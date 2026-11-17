@@ -17,6 +17,7 @@ import argparse
 import json
 from pathlib import Path
 
+from lab8.console import utf8_stdio
 from lab9 import gate, variants
 from lab9.eval import SPEC, load_spec, run_eval
 from lab9.graders import GRADERS
@@ -54,6 +55,7 @@ def detect(spec: dict) -> tuple[float, float]:
 
 
 def main(argv: list[str] | None = None) -> int:
+    utf8_stdio()
     ap = argparse.ArgumentParser(prog="lab9.mutation")
     ap.add_argument("--spec", default=str(SPEC))
     ap.add_argument("--baseline", default="reports/baseline_v2.json")
